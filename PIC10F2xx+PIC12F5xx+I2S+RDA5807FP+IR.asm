@@ -1,15 +1,11 @@
 ;==========================================================================
 ; TITLE     PIC10F2xx+PIC12F5xx+I2S+RDA5807FP+IR      
 ; SUBTITLE  PIC10F200,F202,F204,F206,F220,F222,12F508,12F509 & 12F510 
-; CONTENTS: RDA5807FP + I²C + I²S + NEC IR REMOTE Control    
+; CONTENTS: RDA5807FP + IÂ²C + IÂ²S + NEC IR REMOTE Control    
 ; CONTENTS: No EEPROM. Fixed starting channel and volume at startup                             
 ; EDITOR:   @mit41301                                                    
 ; UPDATED:  11/09/2025                                                   
 ;==========================================================================
-
- ;include "p12F519.inc"
-
-
  ifdef __10F200
  include "p10F200.inc"
  list    p=10F200
@@ -96,8 +92,8 @@ MAXRAM  EQU  H'001F'
  __CONFIG _IntRC_OSC & _WDT_OFF & _CP_OFF & _MCLRE_OFF
  __idlocs H'F508'
 IRx        EQU    GP3    ;INPUT ONLY PIN(IR Rx 38kHz)
-SCL        EQU    GP4    ;SCL pin of the I²C Bus
-SDA        EQU    GP5    ;SDA pin of the I²C Bus
+SCL        EQU    GP4    ;SCL pin of the IÂ²C Bus
+SDA        EQU    GP5    ;SDA pin of the IÂ²C Bus
  MESSG /*PIC12F508 is selected as TARGET*/
  endif
 ;==========================================================================
@@ -109,8 +105,8 @@ MAXRAM  EQU  H'003F'
  __CONFIG _IntRC_OSC & _WDT_OFF & _CP_OFF & _MCLRE_OFF
  __idlocs H'F509'
 IRx        EQU    GP3    ;INPUT ONLY PIN(IR Rx 38kHz)
-SCL        EQU    GP4    ;SCL pin of the I²C Bus
-SDA        EQU    GP5    ;SDA pin of the I²C Bus
+SCL        EQU    GP4    ;SCL pin of the IÂ²C Bus
+SDA        EQU    GP5    ;SDA pin of the IÂ²C Bus
  MESSG /*PIC12F509 is selected as TARGET*/
  endif
 ;==========================================================================
@@ -122,8 +118,8 @@ MAXRAM  EQU  H'003F'
  __CONFIG _IntRC_OSC & _WDT_OFF & _CP_OFF & _MCLRE_OFF & _IOSCFS_OFF
  __idlocs H'F510'
 IRx        EQU    GP3    ;INPUT ONLY PIN(IR Rx 38kHz)
-SCL        EQU    GP4    ;SCL pin of the I²C Bus
-SDA        EQU    GP5    ;SDA pin of the I²C Bus
+SCL        EQU    GP4    ;SCL pin of the IÂ²C Bus
+SDA        EQU    GP5    ;SDA pin of the IÂ²C Bus
  MESSG /*PIC12F510 is selected as TARGET*/
  endif
 
@@ -524,5 +520,4 @@ _CHECK_DATA:
 	goto  CH_UP          ;goto channel UP routine
 
     GOTO _LOOP           ;and go to the 'SET_OUTPUT' label
-
     END                   ;/* END of the Program */
