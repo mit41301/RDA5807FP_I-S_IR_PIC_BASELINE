@@ -1,4 +1,4 @@
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  1
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -25,7 +25,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 
                       00151         LIST
                       00012  list    p=10F200
-  00000010            00013 RAM     SET  H'0010'
+  00000010            00013 RAM     EQU  H'0010'
   0000001F            00014 MAXRAM  EQU  H'001F'
   00000001            00015 SCL     EQU  GP1    ;SCL pin of the I2C Bus
   00000002            00016 SDA     EQU  GP2    ;SDA pin of the I2C Bus
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00041 IRx     EQU  GP3    ;INPUT ONLY PIN(IR Rx 38kHz)
                       00042  __idlocs H'F204'   ;H'100'
                       00043  __CONFIG _IntRC_OSC & _WDT_OFF & _CP_OFF & _MCLRE_OFF
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  2
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00094  ifdef   __12F509
                       00095  include "p12F509.inc"
                       00096  list    p=12F509
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  3
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000397            00147 freq  EQU d'919'        ;   91.9 MHz
                       00148 ;freq  EQU d'943'   ;   94.3 MHz
                       00149 ;freq  EQU d'1040'      ;  104.0 MHz
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  4
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0012   0CC0           00200     MOVLW  0xC0           ;Implement AND operation between 0xC0
 0013   0177           00201     ANDWF  frequency_l, F ;and 'frequency_l' to clear its last 6 bits
 0014   0597           00202     BSF    frequency_l, 4 ;Set bit 4 (Tune) to adjust the frequency
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  5
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0035   00F6           00253     DECF   volume, F      ;Decrement the 'volume' register
 0036   07F6           00254     BTFSS  volume, 7      ;If bit 7 becomes 0 (volume = 0b01111111)
 0037   02B6           00255     INCF   volume, F      ;then increment the 'volume' to get 0b10000000
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  6
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 005D                  00306 SCL_HIGH:                 ;Set SCL pin high
 005D   0534           00307     BSF    port, SCL      ;Set 'scl' bit in the 'port' to make it input
 005E   0214           00308     MOVF   port, W        ;Copy 'port' into W register
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  7
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0082   0073           00359     CLRF   i2c_data       ;Clear the 'i2c_data' register
 0083                  00360 I2C_READ_BIT:             ;Read single bit from the I2C
 0083   0373           00361     RLF    i2c_data, F    ;Shift the 'i2c_data' register one bit to the left
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  8
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00AA   0A9C           00412     GOTO  _LOOP         ;then return to 'LOOP'
                       00413 ;---------------Check the preamble negative pulse---------------------
 00AB   0061           00414     CLRF   TMR0         ;Otherwise clear the timer register
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE  9
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00D8   05E0           00465     BSF    INDF, 7       ;Set the MSB of the INDF register
 00D9                  00466 _NEXT_BIT:
 00D9   02BB           00467     INCF  _bit_count, F  ;Increment the 'bit_count' register
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE 10
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -580,7 +580,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00510 
 00FD   0A9C           00511     GOTO  _LOOP          ;and go to the 'SET_OUTPUT' label
                       00512     END                  ;/* END of the Program */
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE 11
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE 11
 
 
 SYMBOL TABLE
@@ -639,7 +639,7 @@ PSA                               00000003
 RAM                               00000010
 RAMCHK                            00000020
 SCL                               00000001
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE 12
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE 12
 
 
 SYMBOL TABLE
@@ -698,7 +698,7 @@ frequency_l                       00000017
 i                                 00000010
 i2c_data                          00000013
 j                                 00000011
-MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  20:01:52         PAGE 13
+MPASM  5.51  PIC10F2XX+PIC12F5XX+I2S+RDA5807F   9-8-2025  21:14:54         PAGE 13
 
 
 SYMBOL TABLE
