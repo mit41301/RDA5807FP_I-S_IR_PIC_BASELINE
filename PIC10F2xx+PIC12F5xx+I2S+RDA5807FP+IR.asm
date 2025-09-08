@@ -10,7 +10,7 @@
  ifdef __10F200
  include "p10F200.inc"
  list    p=10F200
-RAM     SET  H'0010'
+RAM     EQU  H'0010'
 MAXRAM  EQU  H'001F'
 SCL     EQU  GP1    ;SCL pin of the I2C Bus
 SDA     EQU  GP2    ;SDA pin of the I2C Bus
