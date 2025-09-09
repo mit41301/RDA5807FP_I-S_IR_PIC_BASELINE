@@ -231,7 +231,7 @@ INIT:
 ;======================================================================
     MOVLW  b'00000010'    ;Write high byte into radio register 0x06
     CALL   I2C_WRITE_BYTE
-    MOVLW  b'01110000'    ;Write low byte into radio register 0x06
+    MOVLW  b'10000000'   ;48kbps -Write low byte into register 0x06
     CALL   I2C_WRITE_BYTE
 ;======================================================================
     CALL   I2C_STOP       ;Issue I2C Stop condition
